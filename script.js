@@ -2,6 +2,10 @@
 //create a loop of divs
 //<div id="row" class="row"></div>
 
+//we needa find a way to add an event listener
+//then we needa find a way for said event listener to affect the squares
+//then we want tha squares to change colours and look sick af
+
 const rows = document.getElementById('rows');
 const columns = document.getElementById('columns');
 const color = document.getElementById('color');
@@ -21,10 +25,15 @@ function makeGrid() {
         box.classList.add('box');
         box.style.backgroundColor = color.value;
         rowDiv.appendChild(box);
+        box.addEventListener("click", changeColor);
         }
     }
 }
 
 function changeColor(event) {
+    const R = Math.floor(Math.random()*255);
+    const G = Math.floor(Math.random()*255);
+    const B = Math.floor(Math.random()*255);
 
+    event.target.style.backgroundColor = `rgb(${R},${G},${B})`;
 }
